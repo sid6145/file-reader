@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 10px;
+}
+
+.grid-root {
+    max-height: 600px;
+    max-width: 1100px;
+    overflow-y: scroll;
+}
+
+.side-bar {
+    height: auto;
+    width: 300px;
+    background-color: red;
+}
