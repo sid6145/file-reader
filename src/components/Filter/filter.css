@@ -1,0 +1,11 @@
+.filter-root {
+    height: 100vh;
+    padding: 20px;
+}
+
+.filter-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}

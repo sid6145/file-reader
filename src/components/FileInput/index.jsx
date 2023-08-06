@@ -4,6 +4,8 @@ import { Button, message, Empty } from "antd";
 import "./FileInput.css";
 import { UploadOutlined } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom";
+import {handleFileUpload} from "../../constants"
+import { Paper } from "@mui/material";
 
 const FileInput = () => {
   const [selectedFile, setSelectedFile] = useState([]);
@@ -30,7 +32,7 @@ const FileInput = () => {
     selectedFile.forEach((file) => {
       formData.append("files", file, file.name);
     });
-    const response = await axios.post("http://localhost:8081/uploadLogFiles", formData);
+    const response = handleFileUpload(formData)
     if(response.status === 200) {
       navigate("/dashboard")
     }
@@ -57,7 +59,7 @@ const FileInput = () => {
   return (
     <>
       {contextHolder}
-      <div className="file-input-root">
+      <Paper elevation={5} className="file-input-root">
         <Button type="primary" size="large">
           <label for="file-upload" className="choose-file-btn">
             Choose File
@@ -74,7 +76,7 @@ const FileInput = () => {
         >
           Upload!
         </Button>
-      </div>
+      </Paper>
       <div className="file-details">{fileData()}</div>
     </>
   );
